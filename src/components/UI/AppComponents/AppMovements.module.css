@@ -1,0 +1,24 @@
+.movements {
+  min-height: 50rem;
+}
+
+.movements__container__title__value {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.6rem;
+}
+
+.movements__title {
+  font-size: 2.6rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: -0.22rem;
+  margin-bottom: 0rem;
+}
+
+.movements__value {
+  font-size: 2rem;
+  font-weight: 700;
+}

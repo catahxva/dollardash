@@ -1,0 +1,50 @@
+.movements__form {
+  margin-bottom: 2.6rem;
+}
+
+.movements__form__container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.movements__form__group:first-child {
+  width: 60%;
+}
+
+.movements__form__group:nth-child(2) {
+  width: 40%;
+}
+
+.movements__form__group__select {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.6rem;
+}
+
+.movements__form__label {
+  font-family: inherit;
+  font-size: 1.6rem;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 0.6rem;
+}
+
+.movements__form__input {
+  width: 100%;
+  font-size: 1.6rem;
+  font-family: inherit;
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.5rem;
+  border: 0.5px solid #888;
+}
+
+.movements__form__select {
+  padding: 0.4rem 0.8rem;
+  font-size: 1.6rem;
+  font-family: inherit;
+  border-radius: 0.5rem;
+  width: 50%;
+}

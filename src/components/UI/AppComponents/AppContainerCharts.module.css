@@ -1,0 +1,6 @@
+.container__charts {
+  width: 100%;
+  display: grid;
+  grid-template-columns: calc(100% / 2 - 3rem) calc(100% / 2 - 3rem);
+  column-gap: 6rem;
+}

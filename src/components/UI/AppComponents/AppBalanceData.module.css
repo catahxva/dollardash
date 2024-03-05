@@ -1,0 +1,21 @@
+.balance__span {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+  position: relative;
+}
+
+/* .balance__span::after {
+  content: " ";
+  position: absolute;
+  bottom: -0.2rem;
+  left: 0;
+  height: 0.5px;
+  width: 40%;
+  background-color: #2b8a3e;
+} */
+
+.balance__span:last-child {
+  margin-bottom: 4rem;
+}

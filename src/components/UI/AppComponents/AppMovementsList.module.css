@@ -1,0 +1,13 @@
+.movements__list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.movements__message {
+  font-size: 1.6rem;
+  font-weight: 200;
+}

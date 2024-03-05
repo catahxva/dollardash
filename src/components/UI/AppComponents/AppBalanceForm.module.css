@@ -1,0 +1,26 @@
+.balance__form__label {
+  display: block;
+  font-size: 1.6rem;
+  margin-bottom: 0.6rem;
+  font-family: inherit;
+  font-weight: 500;
+}
+
+.balance__form__input {
+  display: block;
+  padding: 0.4rem 0.6rem;
+  font-family: inherit;
+  border-radius: 0.5rem;
+  border: 1px solid #888;
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+
+.balance__form__btn {
+  transition: all 0.5s;
+}
+
+.balance__form__btn:disabled {
+  background-color: #888;
+  cursor: default;
+}

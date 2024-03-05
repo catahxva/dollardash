@@ -1,0 +1,14 @@
+.movements__list__controls {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.movements__list__controls__button {
+  text-transform: uppercase;
+  font-family: "Inter", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 300;
+}

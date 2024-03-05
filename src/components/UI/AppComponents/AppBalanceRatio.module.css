@@ -1,0 +1,11 @@
+.balance__ratio__container {
+  height: 35rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.balance__ratio__message {
+  font-size: 2rem;
+  font-weight: 900;
+}

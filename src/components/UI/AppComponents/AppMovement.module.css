@@ -1,0 +1,93 @@
+.movement {
+  width: 100%;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  color: #f5f5f5;
+  transition: all 0.5s;
+}
+
+.movement:hover {
+  transform: scale(1.03);
+}
+
+.movement__expense {
+  background-color: #f08c00;
+}
+
+.movement__income {
+  background-color: #6741d9;
+}
+
+.movement__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.movement__row:first-child {
+  margin-bottom: 1rem;
+}
+
+.movement__span__data {
+  font-size: 1.6rem;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.movement__container__spans {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.movement__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.movement__input {
+  font-size: 1.4rem;
+  font-family: inherit;
+  padding: 0.4rem 0.4rem;
+  border-radius: 0.5rem;
+  border: none;
+  font-weight: 200;
+}
+
+.movement__span__main {
+  font-size: 1.8rem;
+  font-weight: 400;
+  /* font-family: "Anta", sans-serif; */
+}
+
+.movement__container__btns {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.movement__btn {
+  padding: 0.3rem 0.5rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #f5f5f5;
+  cursor: pointer;
+}
+
+.movement__btn__delete {
+  background-color: #e03131;
+}
+
+.movement__btn__edit {
+  background-color: #f08c00;
+}
+
+.movement__svg {
+  width: 1.8rem;
+  height: 1.8rem;
+  color: #f5f5f5;
+}
