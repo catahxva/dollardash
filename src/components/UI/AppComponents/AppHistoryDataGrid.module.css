@@ -1,0 +1,18 @@
+.history__grid {
+  width: 100%;
+}
+
+.grid__title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(37.9rem, 1fr));
+  column-gap: 3rem;
+  row-gap: 3rem;
+  justify-items: center;
+}

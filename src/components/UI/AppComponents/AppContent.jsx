@@ -2,17 +2,17 @@ import classes from "./AppContent.module.css";
 
 import { useState } from "react";
 
-import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 import Overlay from "../Others/Overlay";
 import AppModal from "./AppModal";
-import AppCurrentDate from "./AppCurrentDate";
 import AppSelectCurrency from "./AppSelectCurrency";
 import AppBalance from "./AppBalance";
 import AppBalanceRatio from "./AppBalanceRatio";
 import AppMovements from "./AppMovements";
 import AppContainerCharts from "./AppContainerCharts";
 import AppBarChart from "./AppBarChart";
+import AppHistory from "./AppHistory";
 
 function AppContent() {
   const [showModal, setShowModal] = useState();
@@ -27,7 +27,10 @@ function AppContent() {
       )}
       <main className={classes.app}>
         <div className={classes.app__container__header}>
-          <AppCurrentDate />
+          {/* <AppCurrentDate /> */}
+          <Link to="/" className={classes.app__logo}>
+            Dollar/Dash
+          </Link>
           <AppSelectCurrency />
         </div>
         <div className={classes.app__grid__main__app}>
@@ -44,6 +47,7 @@ function AppContent() {
           <AppContainerCharts />
           <AppBarChart />
         </div>
+        <AppHistory />
       </main>
     </>
   );

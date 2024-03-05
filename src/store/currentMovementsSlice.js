@@ -1,9 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { v4 } from "uuid";
 
+const expensesLocalStorage = JSON.parse(localStorage.getItem(`expenses`));
+const incomesLocalStorage = JSON.parse(localStorage.getItem(`incomes`));
+
 const initialCurrentMovements = {
-  expenses: [],
-  incomes: [],
+  expenses: expensesLocalStorage || [],
+  incomes: incomesLocalStorage || [],
 };
 
 export const currentMovementsSlice = createSlice({
@@ -73,3 +76,29 @@ export const currentMovementsSlice = createSlice({
 });
 
 export const currentMovementsActions = currentMovementsSlice.actions;
+
+export const currentMovementsMiddleware = (store) => (next) => (action) => {
+  const result = next(action);
+
+  if (
+    currentMovementsActions.addMovement.match(action) ||
+    currentMovementsActions.deleteMovement.match(action) ||
+    currentMovementsActions.editMovement.match(action)
+  ) {
+    localStorage.setItem(
+      `expenses`,
+      JSON.stringify(store.getState().currentMovements.expenses)
+    );
+    localStorage.setItem(
+      `incomes`,
+      JSON.stringify(store.getState().currentMovements.incomes)
+    );
+  }
+
+  if (currentMovementsActions.clearMovements.match(action)) {
+    localStorage.removeItem(`expenses`);
+    localStorage.removeItem(`incomes`);
+  }
+
+  return result;
+};

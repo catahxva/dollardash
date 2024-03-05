@@ -1,0 +1,19 @@
+.history__buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(auto-fill, 6rem);
+  column-gap: 2rem;
+  row-gap: 2rem;
+  justify-items: center;
+}
+
+.history__button {
+  width: 100%;
+  font-size: 1.4rem;
+  height: 6rem;
+  text-align: center;
+}
+
+.history__button__active {
+  background-color: #6741d9;
+}
