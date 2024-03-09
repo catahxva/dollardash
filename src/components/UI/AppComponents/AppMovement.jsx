@@ -2,11 +2,12 @@ import classes from "./AppMovement.module.css";
 
 import { useState } from "react";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { currentMovementsActions } from "../../../store/currentMovementsSlice";
 
 function AppMovement({ movement }) {
   const dispatch = useDispatch();
+  const symbol = useSelector((state) => state.general.symbol);
 
   const [edit, setEdit] = useState();
 
@@ -36,7 +37,8 @@ function AppMovement({ movement }) {
               </span>
               <span className={classes.movement__span__main}>
                 {movement.type === "expense" ? "-" : undefined}
-                {movement.value.toLocaleString()}$
+                {movement.value.toLocaleString()}
+                {symbol}
               </span>
             </>
           )}

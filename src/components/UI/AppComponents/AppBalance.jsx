@@ -8,6 +8,7 @@ import AppBalanceData from "./AppBalanceData";
 
 function AppBalance({ openModal }) {
   const originalBalance = useSelector((state) => state.general.originalBalance);
+  const symbol = useSelector((state) => state.general.symbol);
   const expenses = useSelector((state) => state.currentMovements.expenses);
   const incomes = useSelector((state) => state.currentMovements.incomes);
 
@@ -56,7 +57,8 @@ function AppBalance({ openModal }) {
         >
           <span className={classes.balance__span}>Balance</span>
           <span className={classes.balance__value}>
-            {currentBalance.toLocaleString()}$
+            {currentBalance.toLocaleString()}
+            {symbol}
           </span>
         </div>
         <div className={classes.balance__data__container}>

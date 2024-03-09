@@ -10,6 +10,8 @@ import AppMovementsList from "./AppMovementsList";
 import AppNoMovements from "./AppNoMovements";
 
 function AppMovements({ movementsType }) {
+  const symbol = useSelector((state) => state.general.symbol);
+
   const movementsState = useSelector((state) => {
     if (movementsType === "expenses") return state.currentMovements.expenses;
 
@@ -29,18 +31,11 @@ function AppMovements({ movementsType }) {
     <AppCellContainer>
       <div className={classes.movements}>
         <div className={classes.movements__container__title__value}>
-          <h3
-            className={`${classes.movements__title} ${
-              movementsType === "expenses"
-                ? classes.movements__title__expenses
-                : classes.movements__title__incomes
-            }`}
-          >
-            {movementsType[0].toUpperCase() + movementsType.slice(1)}
-          </h3>
+          <h3 className={classes.movements__title}>{movementsType}</h3>
           <span className={classes.movements__value}>
             {movementsType === "expenses" && "-"}
-            {value.toLocaleString()}$
+            {value.toLocaleString()}
+            {symbol}
           </span>
         </div>
         {originalBalance && <AppMovementsForm movementsType={movementsType} />}

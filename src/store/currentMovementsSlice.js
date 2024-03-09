@@ -72,6 +72,25 @@ export const currentMovementsSlice = createSlice({
       state.expenses = [];
       state.incomes = [];
     },
+    convertMovements(state, action) {
+      if (action.payload.type === "expenses") {
+        state.expenses = state.expenses.map((exp) => {
+          return {
+            ...exp,
+            value: Math.round(exp.value * action.payload.conversionRate),
+          };
+        });
+      }
+
+      if (action.payload.type === "incomes") {
+        state.incomes = state.incomes.map((inc) => {
+          return {
+            ...inc,
+            value: Math.round(inc.value * action.payload.conversionRate),
+          };
+        });
+      }
+    },
   },
 });
 
@@ -83,7 +102,8 @@ export const currentMovementsMiddleware = (store) => (next) => (action) => {
   if (
     currentMovementsActions.addMovement.match(action) ||
     currentMovementsActions.deleteMovement.match(action) ||
-    currentMovementsActions.editMovement.match(action)
+    currentMovementsActions.editMovement.match(action) ||
+    currentMovementsActions.convertMovements.match(action)
   ) {
     localStorage.setItem(
       `expenses`,

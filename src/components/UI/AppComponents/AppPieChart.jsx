@@ -1,10 +1,14 @@
 import classes from "./AppPieChart.module.css";
 
+import { useSelector } from "react-redux";
+
 import { ResponsivePie } from "@nivo/pie";
 
 import AppCellContainer from "./AppCellContainer";
 
 function AppPieChart({ title, data }) {
+  const symbol = useSelector((state) => state.general.symbol);
+
   return (
     <AppCellContainer>
       <h3>{title}</h3>
@@ -15,7 +19,7 @@ function AppPieChart({ title, data }) {
             colors={({ data }) => data.color}
             margin={{ top: 30, right: 120, bottom: 30, left: 0 }}
             arcLinkLabelsTextColor="#222"
-            arcLabel={(item) => `${item.value}$`}
+            arcLabel={(item) => `${item.value}${symbol}`}
             legends={[
               {
                 anchor: "top-right",

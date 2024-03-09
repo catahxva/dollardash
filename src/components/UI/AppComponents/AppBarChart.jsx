@@ -37,8 +37,19 @@ const filterByTime = function (movementsArr, time, type) {
   }
 };
 
+const weekDays = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
+
 function AppBarChart() {
   const originalBalance = useSelector((state) => state.general.originalBalance);
+  const symbol = useSelector((state) => state.general.symbol);
 
   const expenses = useSelector((state) => state.currentMovements.expenses);
   const incomes = useSelector((state) => state.currentMovements.incomes);
@@ -55,16 +66,6 @@ function AppBarChart() {
   });
 
   lastWeekDays.shift();
-
-  const weekDays = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
 
   const barChartData = lastWeekDays.map((day, i) => {
     const filteredExpenses = filterByTime(latestExpenses, day, "day");
@@ -93,7 +94,7 @@ function AppBarChart() {
             keys={["Expenses", "Incomes"]}
             indexBy="day"
             colors={({ id, data }) => data[`${id}Color`]}
-            label={({ value }) => `${value}$`}
+            label={({ value }) => `${value}${symbol}`}
             labelTextColor={{
               from: "color",
               modifiers: [["darker", 1.6]],

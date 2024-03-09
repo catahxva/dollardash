@@ -1,35 +1,81 @@
 import classes from "./AppSelectCurrency.module.css";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { generalActions } from "../../../store/generalSlice";
+import { currentMovementsActions } from "../../../store/currentMovementsSlice";
 
 import { EXCHANGE_KEY } from "../../../util/config";
 
+import { currencies } from "../../../util/currencies";
+
 function AppSelectCurrency() {
-  // const []
+  const dispatch = useDispatch();
 
   const currentCurrency = useSelector((state) => state.general.currency);
+  const currentSymbol = useSelector((state) => state.general.symbol);
+  const originalBalance = useSelector((state) => state.general.originalBalance);
 
-  const [data, setData] = useState();
+  const expenses = useSelector((state) => state.currentMovements.expenses);
+  const incomes = useSelector((state) => state.currentMovements.incomes);
+
   const [loading, setLoading] = useState();
   const [error, setError] = useState();
 
   const changeHandler = async function (e) {
+    const [newCurrency, newSymbol] = e.target.value.split(",");
+
+    setLoading(true);
+
     try {
       const res = await fetch(
-        `http://api.exchangeratesapi.io/v1/convert?access_key=${EXCHANGE_KEY}&from=${currentCurrency}&to=${e.target.value}&amount=1`
+        `https://api.freecurrencyapi.com/v1/latest?apikey=${EXCHANGE_KEY}&base_currency=${currentCurrency}&currencies=${newCurrency}`
       );
 
       const data = await res.json();
 
-      console.log(data);
-    } catch (err) {
-      console.log(err);
-    }
-  };
+      const dataKeys = Object.keys(data.data);
 
-  console.log(currentCurrency);
+      const conversionRate = data.data[dataKeys[0]];
+
+      dispatch(
+        generalActions.changeCurrency({
+          currency: newCurrency,
+          symbol: newSymbol,
+        })
+      );
+
+      if (originalBalance)
+        dispatch(
+          generalActions.convertOriginalBalance({
+            conversionRate,
+          })
+        );
+
+      if (expenses.length > 0) {
+        dispatch(
+          currentMovementsActions.convertMovements({
+            type: "expenses",
+            conversionRate,
+          })
+        );
+      }
+
+      if (incomes.length > 0) {
+        dispatch(
+          currentMovementsActions.convertMovements({
+            type: "incomes",
+            conversionRate,
+          })
+        );
+      }
+    } catch (err) {
+      setError(err);
+    }
+
+    setLoading(false);
+  };
 
   return (
     <form className={classes.select__form}>
@@ -38,13 +84,20 @@ function AppSelectCurrency() {
       </label>
       <select
         onChange={changeHandler}
-        defaultValue={currentCurrency}
+        defaultValue={`${currentCurrency},${currentSymbol}`}
         className={classes.select__form__select}
         name="select"
       >
-        <option value="USD">USD ($)</option>
-        <option value="EUR">EUR (€)</option>
-        <option value="YEN">YEN (¥)</option>
+        {currencies.map((currency) => {
+          return (
+            <option
+              value={`${currency.code},${currency.symbol}`}
+              key={currency.code}
+            >
+              {currency.code} ({currency.symbol})
+            </option>
+          );
+        })}
       </select>
     </form>
   );
