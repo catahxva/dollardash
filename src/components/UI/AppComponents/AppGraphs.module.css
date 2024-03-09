@@ -1,0 +1,7 @@
+.app__container__graphs {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4rem;
+  margin-bottom: 6rem;
+}

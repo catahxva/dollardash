@@ -1,4 +1,4 @@
-import classes from "./AppContainerCharts.module.css";
+import classes from "./AppPieChartsContainer.module.css";
 
 import { useSelector } from "react-redux";
 
@@ -7,7 +7,6 @@ import {
   incomeCategories,
 } from "../../../util/movementsCategories";
 
-import AppCellContainer from "./AppCellContainer";
 import AppPieChart from "./AppPieChart";
 
 const generateChartData = function (arr1, arr2) {
@@ -27,7 +26,7 @@ const generateChartData = function (arr1, arr2) {
   return filteredMapResults;
 };
 
-function AppContainerCharts() {
+function AppPieChartsContainer() {
   const incomes = useSelector((state) => state.currentMovements.incomes);
   const expenses = useSelector((state) => state.currentMovements.expenses);
 
@@ -42,4 +41,4 @@ function AppContainerCharts() {
   );
 }
 
-export default AppContainerCharts;
+export default AppPieChartsContainer;

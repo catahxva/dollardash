@@ -5,11 +5,13 @@ import {
   currentMovementsMiddleware,
 } from "./currentMovementsSlice";
 import { generalSlice, generalMiddleware } from "./generalSlice";
+import { uiSlice } from "./uiSlice";
 
 const store = configureStore({
   reducer: {
     currentMovements: currentMovementsSlice.reducer,
     general: generalSlice.reducer,
+    ui: uiSlice.ui,
   },
   middleware: (getDefaultMiddleware) => {
     return getDefaultMiddleware()

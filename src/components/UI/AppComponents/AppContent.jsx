@@ -10,9 +10,12 @@ import AppSelectCurrency from "./AppSelectCurrency";
 import AppBalance from "./AppBalance";
 import AppBalanceRatio from "./AppBalanceRatio";
 import AppMovements from "./AppMovements";
-import AppContainerCharts from "./AppContainerCharts";
-import AppBarChart from "./AppBarChart";
+// import AppPieChartsContainer from "./AppPieChartsContainer";
+// import AppBarChart from "./AppBarChart";
+
+import AppMain from "./AppMain";
 import AppHistory from "./AppHistory";
+import AppGraphs from "./AppGraphs";
 
 function AppContent() {
   const [showModal, setShowModal] = useState();
@@ -27,7 +30,6 @@ function AppContent() {
       )}
       <main className={classes.app}>
         <div className={classes.app__container__header}>
-          {/* <AppCurrentDate /> */}
           <Link to="/" className={classes.app__logo}>
             Dollar/Dash
           </Link>
@@ -43,10 +45,7 @@ function AppContent() {
             <AppMovements movementsType={"incomes"} />
           </div>
         </div>
-        <div className={classes.app__container__graphs}>
-          <AppContainerCharts />
-          <AppBarChart />
-        </div>
+        <AppGraphs />
         <AppHistory />
       </main>
     </>
