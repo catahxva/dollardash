@@ -1,8 +1,16 @@
 import classes from "./Overlay.module.css";
 
-function Overlay({ closeModal }) {
+import { useDispatch } from "react-redux";
+import { uiActions } from "../../../store/uiSlice";
+
+function Overlay() {
+  const dispatch = useDispatch();
+
   return (
-    <div onClick={() => closeModal(false)} className={classes.overlay}></div>
+    <div
+      onClick={() => dispatch(uiActions.toggleModal({ status: false }))}
+      className={classes.overlay}
+    ></div>
   );
 }
 

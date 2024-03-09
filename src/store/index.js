@@ -11,7 +11,7 @@ const store = configureStore({
   reducer: {
     currentMovements: currentMovementsSlice.reducer,
     general: generalSlice.reducer,
-    ui: uiSlice.ui,
+    ui: uiSlice.reducer,
   },
   middleware: (getDefaultMiddleware) => {
     return getDefaultMiddleware()

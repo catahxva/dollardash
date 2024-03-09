@@ -4,10 +4,11 @@ import { createPortal } from "react-dom";
 
 import { useDispatch } from "react-redux";
 
+import { uiActions } from "../../../store/uiSlice";
 import { generalActions } from "../../../store/generalSlice";
 import { currentMovementsActions } from "../../../store/currentMovementsSlice";
 
-function AppModal({ closeModal }) {
+function AppModal() {
   const dispatch = useDispatch();
 
   return createPortal(
@@ -21,14 +22,14 @@ function AppModal({ closeModal }) {
           onClick={() => {
             dispatch(generalActions.clearBalance());
             dispatch(currentMovementsActions.clearMovements());
-            closeModal(false);
+            dispatch(uiActions.toggleModal({ status: false }));
           }}
           className={`${classes.modal__btn} ${classes.modal__btn__clear}`}
         >
           Clear
         </button>
         <button
-          onClick={() => closeModal(false)}
+          onClick={() => dispatch(uiActions.toggleModal({ status: false }))}
           className={`${classes.modal__btn} ${classes.modal__btn__close}`}
         >
           Close

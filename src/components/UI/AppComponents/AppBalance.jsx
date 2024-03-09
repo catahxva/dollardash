@@ -1,14 +1,19 @@
 import classes from "./AppBalance.module.css";
 
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+
+import { uiActions } from "../../../store/uiSlice";
 
 import AppCellContainer from "./AppCellContainer";
 import AppBalanceForm from "./AppBalanceForm";
 import AppBalanceData from "./AppBalanceData";
 
-function AppBalance({ openModal }) {
+function AppBalance() {
+  const dispatch = useDispatch();
+
   const originalBalance = useSelector((state) => state.general.originalBalance);
   const symbol = useSelector((state) => state.general.symbol);
+
   const expenses = useSelector((state) => state.currentMovements.expenses);
   const incomes = useSelector((state) => state.currentMovements.incomes);
 
@@ -68,7 +73,9 @@ function AppBalance({ openModal }) {
               <AppBalanceData currentBalance={currentBalance} />
               <div>
                 <button
-                  onClick={() => openModal(true)}
+                  onClick={() =>
+                    dispatch(uiActions.toggleModal({ status: true }))
+                  }
                   className={`app__button app__button__negative app__button__shadow`}
                 >
                   Clear Balance

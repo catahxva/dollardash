@@ -1,8 +1,9 @@
 import classes from "./AppSelectCurrency.module.css";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { useSelector, useDispatch } from "react-redux";
+import { uiActions } from "../../../store/uiSlice";
 import { generalActions } from "../../../store/generalSlice";
 import { currentMovementsActions } from "../../../store/currentMovementsSlice";
 
@@ -22,6 +23,7 @@ function AppSelectCurrency() {
 
   const [loading, setLoading] = useState();
   const [error, setError] = useState();
+  const [success, setSuccess] = useState();
 
   const changeHandler = async function (e) {
     const [newCurrency, newSymbol] = e.target.value.split(",");
@@ -70,12 +72,62 @@ function AppSelectCurrency() {
           })
         );
       }
+
+      setSuccess(true);
     } catch (err) {
       setError(err);
     }
 
     setLoading(false);
   };
+
+  useEffect(() => {
+    if (loading) {
+      dispatch(uiActions.deleteNotification());
+
+      dispatch(
+        uiActions.triggerNotification({
+          status: "loading",
+          message: "Loading...",
+        })
+      );
+    }
+
+    if (error) {
+      dispatch(uiActions.deleteNotification());
+
+      dispatch(
+        uiActions.triggerNotification({
+          status: "error",
+          message: error.message,
+        })
+      );
+    }
+
+    if (success) {
+      dispatch(uiActions.deleteNotification());
+
+      dispatch(
+        uiActions.triggerNotification({
+          status: "success",
+          message: "Conversion was successful",
+        })
+      );
+    }
+
+    const timer = setTimeout(() => {
+      dispatch(uiActions.deleteNotification());
+      setSuccess();
+      setError();
+      setLoading();
+    }, 3000);
+
+    return () => {
+      dispatch(uiActions.deleteNotification());
+
+      clearTimeout(timer);
+    };
+  }, [loading, error, success]);
 
   return (
     <form className={classes.select__form}>

@@ -8,7 +8,7 @@ function AppMain() {
   return (
     <div className={classes.app__grid__main__app}>
       <div className={classes.app__grid__container__side}>
-        <AppBalance openModal={setShowModal} />
+        <AppBalance />
         <AppBalanceRatio />
       </div>
       <div className={classes.app__grid__container__main}>

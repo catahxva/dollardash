@@ -1,50 +1,34 @@
 import classes from "./AppContent.module.css";
 
-import { useState } from "react";
+import { useSelector } from "react-redux";
 
-import { Link } from "react-router-dom";
+import AppNotification from "./AppNotification";
 
 import Overlay from "../Others/Overlay";
 import AppModal from "./AppModal";
-import AppSelectCurrency from "./AppSelectCurrency";
-import AppBalance from "./AppBalance";
-import AppBalanceRatio from "./AppBalanceRatio";
-import AppMovements from "./AppMovements";
-// import AppPieChartsContainer from "./AppPieChartsContainer";
-// import AppBarChart from "./AppBarChart";
 
+import AppHeader from "./AppHeader";
 import AppMain from "./AppMain";
-import AppHistory from "./AppHistory";
 import AppGraphs from "./AppGraphs";
 
+import AppHistory from "./AppHistory";
+
 function AppContent() {
-  const [showModal, setShowModal] = useState();
+  const activeModal = useSelector((state) => state.ui.activeModal);
+  const notification = useSelector((state) => state.ui.notification);
 
   return (
     <>
-      {showModal && (
+      {notification && <AppNotification />}
+      {activeModal && (
         <>
-          <Overlay closeModal={setShowModal} />
-          <AppModal closeModal={setShowModal} />
+          <Overlay />
+          <AppModal />
         </>
       )}
       <main className={classes.app}>
-        <div className={classes.app__container__header}>
-          <Link to="/" className={classes.app__logo}>
-            Dollar/Dash
-          </Link>
-          <AppSelectCurrency />
-        </div>
-        <div className={classes.app__grid__main__app}>
-          <div className={classes.app__grid__container__side}>
-            <AppBalance openModal={setShowModal} />
-            <AppBalanceRatio />
-          </div>
-          <div className={classes.app__grid__container__main}>
-            <AppMovements movementsType={"expenses"} />
-            <AppMovements movementsType={"incomes"} />
-          </div>
-        </div>
+        <AppHeader />
+        <AppMain />
         <AppGraphs />
         <AppHistory />
       </main>
