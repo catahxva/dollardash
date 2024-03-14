@@ -3,8 +3,8 @@ import classes from "./AppHistoryData.module.css";
 import AppHistoryDataGrid from "./AppHistoryDataGrid";
 
 function AppHistoryData({ data }) {
-  const expenses = data?.filter((data) => data.type === "expense");
-  const incomes = data?.filter((data) => data.type === "income");
+  const expenses = data?.filter((data) => data.type === "expenses");
+  const incomes = data?.filter((data) => data.type === "incomes");
 
   return (
     <div className={classes.history__data}>

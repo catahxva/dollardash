@@ -10,6 +10,8 @@ import {
 } from "../../../util/movementsCategories";
 
 function AppMovementsForm({ movementsType }) {
+  console.log(movementsType);
+
   const formMovementType = movementsType === "expenses" ? "Expense" : "Income";
 
   const optionsArray =
@@ -21,10 +23,13 @@ function AppMovementsForm({ movementsType }) {
   const [valueInput, setValueInput] = useState(0);
   const [category, setCategory] = useState("");
 
+  const convertedValue = Number(valueInput);
+
   const submitHandler = function (e) {
     e.preventDefault();
 
-    if (!titleInput || !valueInput || !category) return;
+    if (!titleInput || !convertedValue || convertedValue < 0 || !category)
+      return;
 
     dispatch(
       currentMovementsActions.addMovement({
@@ -89,7 +94,9 @@ function AppMovementsForm({ movementsType }) {
       </div>
       <button
         className="app__button"
-        disabled={!titleInput || !valueInput || !category}
+        disabled={
+          !titleInput || !convertedValue || convertedValue < 0 || !category
+        }
       >
         Add {formMovementType}
       </button>

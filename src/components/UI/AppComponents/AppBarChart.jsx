@@ -71,8 +71,6 @@ function AppBarChart() {
     const filteredExpenses = filterByTime(latestExpenses, day, "day");
     const filteredIncomes = filterByTime(latestIncomes, day, "day");
 
-    console.log(filteredIncomes);
-
     return {
       day: weekDays[day],
       Expenses: filteredExpenses.reduce((acc, exp) => acc + exp.value, 0),
@@ -81,8 +79,6 @@ function AppBarChart() {
       IncomesColor: "hsl(258, 60%, 51%)",
     };
   });
-
-  console.log(barChartData);
 
   return (
     <AppCellContainer>

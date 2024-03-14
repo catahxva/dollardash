@@ -17,7 +17,7 @@ function AppMovement({ movement }) {
   return (
     <div
       className={`${classes.movement} ${
-        movement.type === "expense"
+        movement.type === "expenses"
           ? classes.movement__expense
           : classes.movement__income
       }`}

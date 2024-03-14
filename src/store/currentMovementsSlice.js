@@ -34,7 +34,7 @@ export const currentMovementsSlice = createSlice({
         date: formattedDate,
         serializedDate: currentDate.toISOString(),
         id: v4(),
-        type: action.payload.type === "expenses" ? "expense" : "income",
+        type: action.payload.type,
       };
 
       movementsArray.unshift(newMovement);
