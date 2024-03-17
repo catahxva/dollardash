@@ -3,7 +3,7 @@ import classes from "./AppMovement.module.css";
 import { useState } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
-import { currentMovementsActions } from "../../../store/currentMovementsSlice";
+import { currentMovementsActions } from "../../store/currentMovementsSlice";
 
 function AppMovement({ movement }) {
   const dispatch = useDispatch();

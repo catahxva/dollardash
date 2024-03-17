@@ -2,12 +2,12 @@ import classes from "./AppMovementsForm.module.css";
 
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { currentMovementsActions } from "../../../store/currentMovementsSlice";
+import { currentMovementsActions } from "../../store/currentMovementsSlice";
 
 import {
   expenseCategories,
   incomeCategories,
-} from "../../../util/movementsCategories";
+} from "../../util/movementsCategories";
 
 function AppMovementsForm({ movementsType }) {
   console.log(movementsType);

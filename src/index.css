@@ -18,14 +18,24 @@ body {
   font-family: "Jura", sans-serif;
 }
 
+section {
+  max-width: 130rem;
+  margin: 0 auto;
+  padding: 8rem 2.5rem;
+}
+
 button {
   background-color: transparent;
-  /* font-family: "Anta", sans-serif; */
   font-family: inherit;
   font-weight: 700;
   border: none;
   color: inherit;
   cursor: pointer;
+}
+
+h2 {
+  font-size: 2.8rem;
+  font-weight: 600;
 }
 
 h3 {

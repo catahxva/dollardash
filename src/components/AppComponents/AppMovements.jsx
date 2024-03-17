@@ -2,7 +2,7 @@ import classes from "./AppMovements.module.css";
 
 import { useSelector } from "react-redux";
 
-import { filterMovements } from "../../../util/util";
+import { filterMovements } from "../../util/util";
 
 import AppCellContainer from "./AppCellContainer";
 import AppMovementsForm from "./AppMovementsForm";

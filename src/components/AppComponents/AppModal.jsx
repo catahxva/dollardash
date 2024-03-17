@@ -4,9 +4,9 @@ import { createPortal } from "react-dom";
 
 import { useDispatch } from "react-redux";
 
-import { uiActions } from "../../../store/uiSlice";
-import { generalActions } from "../../../store/generalSlice";
-import { currentMovementsActions } from "../../../store/currentMovementsSlice";
+import { uiActions } from "../../store/uiSlice";
+import { generalActions } from "../../store/generalSlice";
+import { currentMovementsActions } from "../../store/currentMovementsSlice";
 
 function AppModal() {
   const dispatch = useDispatch();

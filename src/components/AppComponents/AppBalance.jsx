@@ -2,7 +2,7 @@ import classes from "./AppBalance.module.css";
 
 import { useSelector, useDispatch } from "react-redux";
 
-import { uiActions } from "../../../store/uiSlice";
+import { uiActions } from "../../store/uiSlice";
 
 import AppCellContainer from "./AppCellContainer";
 import AppBalanceForm from "./AppBalanceForm";

@@ -3,13 +3,13 @@ import classes from "./AppSelectCurrency.module.css";
 import { useState, useEffect } from "react";
 
 import { useSelector, useDispatch } from "react-redux";
-import { uiActions } from "../../../store/uiSlice";
-import { generalActions } from "../../../store/generalSlice";
-import { currentMovementsActions } from "../../../store/currentMovementsSlice";
+import { uiActions } from "../../store/uiSlice";
+import { generalActions } from "../../store/generalSlice";
+import { currentMovementsActions } from "../../store/currentMovementsSlice";
 
-import { EXCHANGE_KEY } from "../../../util/config";
+import { EXCHANGE_KEY } from "../../util/config";
 
-import { currencies } from "../../../util/currencies";
+import { currencies } from "../../util/currencies";
 
 function AppSelectCurrency() {
   const dispatch = useDispatch();

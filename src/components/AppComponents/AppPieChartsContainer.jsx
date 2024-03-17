@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import {
   expenseCategories,
   incomeCategories,
-} from "../../../util/movementsCategories";
+} from "../../util/movementsCategories";
 
 import AppPieChart from "./AppPieChart";
 

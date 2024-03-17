@@ -1,7 +1,7 @@
 import classes from "./Overlay.module.css";
 
 import { useDispatch } from "react-redux";
-import { uiActions } from "../../../store/uiSlice";
+import { uiActions } from "../../store/uiSlice";
 
 function Overlay() {
   const dispatch = useDispatch();

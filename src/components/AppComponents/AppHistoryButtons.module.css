@@ -15,5 +15,5 @@
 }
 
 .history__button__active {
-  background-color: #6741d9;
+  background-color: #6741d9 !important;
 }

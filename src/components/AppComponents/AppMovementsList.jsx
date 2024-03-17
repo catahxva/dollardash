@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 
 import { useSelector } from "react-redux";
 
-import { filterMovements } from "../../../util/util";
+import { filterMovements } from "../../util/util";
 
 import AppMovement from "./AppMovement";
 import AppMovementsListControls from "./AppMovementsListControls";

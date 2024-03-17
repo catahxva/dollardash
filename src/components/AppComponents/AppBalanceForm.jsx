@@ -3,7 +3,7 @@ import classes from "./AppBalanceForm.module.css";
 import { useState } from "react";
 
 import { useDispatch } from "react-redux";
-import { generalActions } from "../../../store/generalSlice";
+import { generalActions } from "../../store/generalSlice";
 
 function AppBalanceForm() {
   const dispatch = useDispatch();
