@@ -73,6 +73,7 @@ function AppSelectCurrency() {
 
       setSuccess(true);
     } catch (err) {
+      console.log(err);
       setError(err);
     }
 
