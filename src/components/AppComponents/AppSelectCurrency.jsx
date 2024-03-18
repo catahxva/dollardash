@@ -29,10 +29,10 @@ function AppSelectCurrency() {
     setLoading(true);
 
     try {
-      console.log(process.env.EXCHANGE_KEY);
+      console.log(process.env.REACT_APP_EXCHANGE_KEY);
 
       const res = await fetch(
-        `https://api.freecurrencyapi.com/v1/latest?apikey=${process.env.EXCHANGE_KEY}&base_currency=${currentCurrency}&currencies=${newCurrency}`
+        `https://api.freecurrencyapi.com/v1/latest?apikey=${process.env.REACT_APP_EXCHANGE_KEY}&base_currency=${currentCurrency}&currencies=${newCurrency}`
       );
 
       const data = await res.json();
