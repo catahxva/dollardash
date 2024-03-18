@@ -17,6 +17,8 @@ function AppNotification() {
       ? classes.notification__success
       : classes.notification__loading;
 
+  console.log(backgroundClass);
+
   return createPortal(
     <div className={`${classes.notification} ${backgroundClass}`}>
       <span className={classes.notification__message}>{message}</span>

@@ -29,6 +29,8 @@ function AppSelectCurrency() {
     setLoading(true);
 
     try {
+      console.log(process.env.EXCHANGE_KEY);
+
       const res = await fetch(
         `https://api.freecurrencyapi.com/v1/latest?apikey=${process.env.EXCHANGE_KEY}&base_currency=${currentCurrency}&currencies=${newCurrency}`
       );
