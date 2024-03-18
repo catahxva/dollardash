@@ -10,6 +10,8 @@ function AppNotification() {
   const dispatch = useDispatch();
   const { status, message } = useSelector((state) => state.ui.notification);
 
+  console.log(status);
+
   const backgroundClass =
     status === "error"
       ? classes.notification__error
