@@ -9,3 +9,21 @@
   font-size: 2rem;
   font-weight: 900;
 }
+
+@media screen and (max-width: 1115px) {
+  .balance__ratio__container {
+    height: 28rem;
+  }
+}
+
+@media screen and (max-width: 895px) {
+  .balance__ratio__container {
+    height: 35rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .balance__ratio__container {
+    height: 30rem;
+  }
+}

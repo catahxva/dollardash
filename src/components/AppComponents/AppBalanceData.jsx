@@ -7,7 +7,7 @@ function AppBalanceData({ currentBalance }) {
   const symbol = useSelector((state) => state.general.symbol);
 
   return (
-    <div>
+    <div className={classes.balance__data}>
       <span className={classes.balance__span}>
         Original Balance: {originalBalance.toLocaleString()} {symbol}
       </span>

@@ -66,10 +66,10 @@ function AppBalance() {
             {symbol}
           </span>
         </div>
-        <div className={classes.balance__data__container}>
+        <div>
           {!originalBalance && <AppBalanceForm />}
           {originalBalance && (
-            <>
+            <div className={classes.balance__current__data}>
               <AppBalanceData currentBalance={currentBalance} />
               <div>
                 <button
@@ -81,7 +81,7 @@ function AppBalance() {
                   Clear Balance
                 </button>
               </div>
-            </>
+            </div>
           )}
         </div>
       </div>

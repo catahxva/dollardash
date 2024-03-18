@@ -13,3 +13,10 @@ export const filterMovements = function (movements) {
     return movYear === year && movMonth === month;
   });
 };
+
+export const determineEnableLabels = function (comparableVal) {
+  const screenWidth = window.screen.width;
+  const enableLabels = screenWidth <= comparableVal ? false : true;
+
+  return enableLabels;
+};

@@ -14,3 +14,9 @@
   color: inherit;
   font-family: inherit;
 }
+
+@media screen and (max-width: 450px) {
+  .app__logo {
+    font-size: 2rem;
+  }
+}

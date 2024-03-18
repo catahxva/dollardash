@@ -4,6 +4,8 @@ import { useSelector } from "react-redux";
 
 import { ResponsivePie } from "@nivo/pie";
 
+import { determineEnableLabels } from "../../util/util";
+
 import AppCellContainer from "./AppCellContainer";
 
 function AppBalanceRatio() {
@@ -23,8 +25,8 @@ function AppBalanceRatio() {
 
   const data = [
     {
-      id: "Start Balance",
-      label: "Start Balance",
+      id: "Start",
+      label: "Start",
       value: Math.round(startPercentage),
       color: "hsl(0, 0%, 47%)",
     },
@@ -45,6 +47,8 @@ function AppBalanceRatio() {
       color: "hsl(34, 100%, 50%)",
     });
 
+  const enableLabels = determineEnableLabels(620);
+
   return (
     <AppCellContainer gradient>
       <h3>Total Balance Ratio</h3>
@@ -56,15 +60,16 @@ function AppBalanceRatio() {
             margin={{ top: 20, right: 0, bottom: 60, left: 0 }}
             arcLinkLabelsTextColor="#222"
             arcLabel={(item) => `${item.value}%`}
+            enableArcLinkLabels={enableLabels}
             legends={[
               {
                 anchor: "bottom",
                 direction: "row",
                 justify: false,
-                translateX: 25,
+                translateX: 15,
                 translateY: 55,
-                itemsSpacing: 8,
-                itemWidth: 110,
+                itemsSpacing: 2,
+                itemWidth: 90,
                 itemHeight: 10,
                 itemTextColor: "#222",
                 itemDirection: "left-to-right",

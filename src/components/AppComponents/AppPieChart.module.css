@@ -5,3 +5,15 @@
   align-items: center;
   justify-content: center;
 }
+
+@media screen and (max-width: 970px) {
+  .container {
+    height: 35rem;
+  }
+}
+
+@media screen and (max-width: 670px) {
+  .container {
+    height: 30rem;
+  }
+}

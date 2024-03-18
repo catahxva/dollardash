@@ -4,3 +4,17 @@
   grid-template-columns: calc(100% / 2 - 3rem) calc(100% / 2 - 3rem);
   column-gap: 6rem;
 }
+
+@media screen and (max-width: 1115px) {
+  .container__charts {
+    column-gap: 4rem;
+    grid-template-columns: calc(100% / 2 - 2rem) calc(100% / 2 - 2rem);
+  }
+}
+
+@media screen and (max-width: 970px) {
+  .container__charts {
+    grid-template-columns: 1fr;
+    row-gap: 4rem;
+  }
+}

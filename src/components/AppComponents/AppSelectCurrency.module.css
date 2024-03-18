@@ -17,3 +17,19 @@
   color: #f5f5f5;
   font-size: 1.8rem;
 }
+
+@media screen and (max-width: 450px) {
+  .select__form {
+    gap: 1rem;
+  }
+
+  .select__form__span {
+    font-size: 1.6rem;
+  }
+
+  .select__form__select {
+    font-size: 1.6rem;
+    padding: 0.4rem 1rem;
+    border-radius: 0.5rem;
+  }
+}

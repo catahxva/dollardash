@@ -7,3 +7,15 @@
   align-items: center;
   justify-content: center;
 }
+
+@media screen and (max-width: 650px) {
+  .chart__container {
+    height: 60rem;
+  }
+}
+
+@media screen and (max-width: 590px) {
+  .chart__container {
+    height: 60rem;
+  }
+}

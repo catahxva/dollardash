@@ -7,6 +7,13 @@
   padding-bottom: 2rem;
 }
 
+@media screen and (max-width: 970px) {
+  .history__grid {
+    grid-template-columns: 1fr;
+    row-gap: 4rem;
+  }
+}
+
 .history__grid__container__data {
   width: 100%;
   min-height: 40rem;

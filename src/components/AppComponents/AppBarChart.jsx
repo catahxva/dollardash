@@ -72,7 +72,7 @@ function AppBarChart() {
     const filteredIncomes = filterByTime(latestIncomes, day, "day");
 
     return {
-      day: weekDays[day],
+      day: weekDays[day].slice(0, 3),
       Expenses: filteredExpenses.reduce((acc, exp) => acc + exp.value, 0),
       ExpensesColor: "hsl(34, 100%, 50%)",
       Incomes: filteredIncomes.reduce((acc, inc) => acc + inc.value, 0),
@@ -95,14 +95,15 @@ function AppBarChart() {
               from: "color",
               modifiers: [["darker", 1.6]],
             }}
-            margin={{ top: 50, left: 50, bottom: 120, right: 50 }}
+            labelSkipHeight={12}
+            margin={{ top: 50, left: 40, bottom: 120, right: 10 }}
             legends={[
               {
                 dataFrom: "keys",
                 anchor: "bottom",
                 direction: "row",
                 justify: false,
-                translateX: 50,
+                translateX: 20,
                 translateY: 80,
                 itemsSpacing: 2,
                 itemWidth: 100,
