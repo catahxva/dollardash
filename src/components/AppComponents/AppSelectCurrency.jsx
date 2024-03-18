@@ -32,7 +32,7 @@ function AppSelectCurrency() {
 
     try {
       const res = await fetch(
-        `https://api.freecurrencyapi.com/v1/latest?apikey=${EXCHANGE_KEY}&base_currency=${currentCurrency}&currencies=${newCurrency}`
+        `https://api.freecurrencyapi.com/v1/latest?apikey=${process.env.EXCHANGE_KEY}&base_currency=${currentCurrency}&currencies=${newCurrency}`
       );
 
       const data = await res.json();
