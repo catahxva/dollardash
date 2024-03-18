@@ -55,9 +55,9 @@ export const currentMovementsSlice = createSlice({
     editMovement(state, action) {
       let searchArr;
 
-      if (action.payload.type === "expense") searchArr = state.expenses;
+      if (action.payload.type === "expenses") searchArr = state.expenses;
 
-      if (action.payload.type === "income") searchArr = state.incomes;
+      if (action.payload.type === "incomes") searchArr = state.incomes;
 
       const movementIndex = searchArr.findIndex(
         (movement) => movement.id === action.payload.id
