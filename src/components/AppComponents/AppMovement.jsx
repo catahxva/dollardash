@@ -1,6 +1,6 @@
 import classes from "./AppMovement.module.css";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 import { currentMovementsActions } from "../../store/currentMovementsSlice";
@@ -9,10 +9,17 @@ function AppMovement({ movement }) {
   const dispatch = useDispatch();
   const symbol = useSelector((state) => state.general.symbol);
 
+  const { title, value } = movement;
+
   const [edit, setEdit] = useState();
 
-  const [titleInput, setTitleInput] = useState(movement.title);
-  const [valueInput, setValueInput] = useState(movement.value);
+  const [titleInput, setTitleInput] = useState(title);
+  const [valueInput, setValueInput] = useState(value);
+
+  useEffect(() => {
+    setTitleInput(title);
+    setValueInput(value);
+  }, [title, value]);
 
   return (
     <div
@@ -116,7 +123,8 @@ function AppMovement({ movement }) {
 
                 const convertedValue = Number(valueInput);
 
-                if (!titleInput || !valueInput || convertedValue <= 0) return;
+                if (!titleInput || !convertedValue || convertedValue <= 0)
+                  return;
 
                 dispatch(
                   currentMovementsActions.editMovement({

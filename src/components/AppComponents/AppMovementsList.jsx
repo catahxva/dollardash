@@ -18,6 +18,8 @@ function AppMovementsList({ movementsType }) {
 
   const movements = filterMovements(movementsState);
 
+  console.log(movements);
+
   const currentDate = new Date();
 
   const year = currentDate.getFullYear();
