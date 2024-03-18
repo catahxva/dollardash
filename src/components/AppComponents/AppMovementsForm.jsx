@@ -10,8 +10,6 @@ import {
 } from "../../util/movementsCategories";
 
 function AppMovementsForm({ movementsType }) {
-  console.log(movementsType);
-
   const formMovementType = movementsType === "expenses" ? "Expense" : "Income";
 
   const optionsArray =

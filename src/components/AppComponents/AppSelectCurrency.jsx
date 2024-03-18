@@ -75,7 +75,6 @@ function AppSelectCurrency() {
 
       setSuccess(true);
     } catch (err) {
-      console.log(err);
       setError(err);
     }
 
@@ -84,6 +83,8 @@ function AppSelectCurrency() {
 
   useEffect(() => {
     if (loading) {
+      console.log("loading block");
+
       dispatch(uiActions.deleteNotification());
 
       dispatch(
@@ -95,6 +96,8 @@ function AppSelectCurrency() {
     }
 
     if (error) {
+      console.log("error if block");
+
       dispatch(uiActions.deleteNotification());
 
       dispatch(

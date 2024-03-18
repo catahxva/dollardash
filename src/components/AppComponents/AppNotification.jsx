@@ -10,16 +10,12 @@ function AppNotification() {
   const dispatch = useDispatch();
   const { status, message } = useSelector((state) => state.ui.notification);
 
-  console.log(status);
-
   const backgroundClass =
     status === "error"
       ? classes.notification__error
       : status === "success"
       ? classes.notification__success
       : classes.notification__loading;
-
-  console.log(backgroundClass);
 
   return createPortal(
     <div className={`${classes.notification} ${backgroundClass}`}>

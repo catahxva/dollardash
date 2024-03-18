@@ -118,8 +118,6 @@ function AppMovement({ movement }) {
 
                 if (!titleInput || !valueInput || convertedValue <= 0) return;
 
-                console.log("did not return");
-
                 dispatch(
                   currentMovementsActions.editMovement({
                     type: movement.type,
