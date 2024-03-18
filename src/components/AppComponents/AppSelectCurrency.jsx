@@ -7,6 +7,8 @@ import { uiActions } from "../../store/uiSlice";
 import { generalActions } from "../../store/generalSlice";
 import { currentMovementsActions } from "../../store/currentMovementsSlice";
 
+import { EXCHANGE_KEY } from "../../util/config";
+
 import { currencies } from "../../util/currencies";
 
 function AppSelectCurrency() {
@@ -29,10 +31,8 @@ function AppSelectCurrency() {
     setLoading(true);
 
     try {
-      console.log(process.env.REACT_APP_EXCHANGE_KEY);
-
       const res = await fetch(
-        `https://api.freecurrencyapi.com/v1/latest?apikey=${process.env.REACT_APP_EXCHANGE_KEY}&base_currency=${currentCurrency}&currencies=${newCurrency}`
+        `https://api.freecurrencyapi.com/v1/latest?apikey=${EXCHANGE_KEY}&base_currency=${currentCurrency}&currencies=${newCurrency}`
       );
 
       const data = await res.json();
