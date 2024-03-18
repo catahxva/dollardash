@@ -7,8 +7,6 @@ import { uiActions } from "../../store/uiSlice";
 import { generalActions } from "../../store/generalSlice";
 import { currentMovementsActions } from "../../store/currentMovementsSlice";
 
-import { EXCHANGE_KEY } from "../../util/config";
-
 import { currencies } from "../../util/currencies";
 
 function AppSelectCurrency() {
